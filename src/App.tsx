@@ -1,6 +1,6 @@
-import React from "react";
-import "./App.css";
-import { ScoreSheet } from "./components/ScoreSheet";
+import React from 'react';
+import './App.css';
+import { ScoreSheet } from './components/ScoreSheet';
 
 const App: React.FC = () => {
   return (
@@ -8,6 +8,6 @@ const App: React.FC = () => {
       <ScoreSheet />
     </div>
   );
-}
+};
 
 export default App;

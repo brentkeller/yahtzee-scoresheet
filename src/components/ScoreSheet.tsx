@@ -1,5 +1,5 @@
-import React from "react";
-import { PlayerColumn } from "./PlayerColumn";
+import React from 'react';
+import { PlayerColumn } from './PlayerColumn';
 
 export const ScoreSheet: React.FC = () => {
   return (
