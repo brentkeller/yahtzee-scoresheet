@@ -1,8 +1,12 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export const InputCell: React.FC<{value?: number, fieldName:string, setValue: Function}> = 
-({ value, fieldName, setValue }: any) => {
-  const changeValue = (event: any) => setValue(fieldName, event.target.value);
+const InputCell: React.FC<{
+  value?: number;
+  fieldName: string;
+  setValue: Function;
+}> = ({ value, fieldName, setValue }) => {
+  const changeValue = (event: any) => setValue(fieldName, +event.target.value);
 
   return (
     <div className="cell">
@@ -10,3 +14,11 @@ export const InputCell: React.FC<{value?: number, fieldName:string, setValue: Fu
     </div>
   );
 };
+
+InputCell.propTypes = {
+  value: PropTypes.number,
+  fieldName: PropTypes.string.isRequired,
+  setValue: PropTypes.func.isRequired,
+};
+
+export { InputCell };

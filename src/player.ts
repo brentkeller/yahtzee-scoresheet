@@ -1,21 +1,29 @@
-export class Player {
-  constructor(public name: string){
-  }
-
-  ones: number =0;
-  twos: number =0;
-  threes: number =0;
-  fours: number =0;
-  fives: number =0;
-  sixes: number =0;
-  numbersTotal: number =0;
-  numbersBonus: number =0;
-  upperTotal: number =0;
-  smallStraight: number =0;
-  largeStraight: number =0;
-  yahtzee: number =0;
-  chance: number =0;
+export class PlayerScores {
+  ones?: number;
+  twos?: number;
+  threes?: number;
+  fours?: number;
+  fives?: number;
+  sixes?: number;
+  numbersTotal?: number;
+  numbersBonus?: number;
+  upperTotal?: number;
+  smallStraight?: number;
+  largeStraight?: number;
+  yahtzee?: number;
+  chance?: number;
   // TODO: bonus yahtzees
-  lowerTotal: number =0;
-  total: number =0;
+  lowerTotal?: number;
+  total?: number;
+  [key: string]: number | undefined; // Index signature
+}
+
+export class Player {
+  name: string;
+  scores: PlayerScores;
+
+  constructor(name: string) {
+    this.name = name;
+    this.scores = new PlayerScores();
+  }
 }
