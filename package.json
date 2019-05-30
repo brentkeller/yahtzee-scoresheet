@@ -2,6 +2,7 @@
   "name": "yahtzee-scoresheet",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "dependencies": {
     "@types/jest": "24.0.13",
     "@types/node": "12.0.2",
