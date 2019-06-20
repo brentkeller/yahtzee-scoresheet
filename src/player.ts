@@ -8,11 +8,14 @@ export class PlayerScores {
   numbersTotal?: number;
   numbersBonus?: number;
   upperTotal?: number;
+  threeOfAKind?: number;
+  fourOfAKind?: number;
+  fullHouse?: number;
   smallStraight?: number;
   largeStraight?: number;
   yahtzee?: number;
   chance?: number;
-  // TODO: bonus yahtzees
+  bonusYahtzees?: number;
   lowerTotal?: number;
   total?: number;
   [key: string]: number | undefined; // Index signature

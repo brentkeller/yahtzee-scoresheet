@@ -51,6 +51,33 @@ const PlayerColumn: React.FC<{ name: string }> = ({ name }) => {
       <div className="cell">{player && player.scores && player.scores.numbersTotal}</div>
       <div className="cell">{player && player.scores && player.scores.numbersBonus}</div>
       <div className="cell">{player && player.scores && player.scores.upperTotal}</div>
+      <InputCell
+        value={player.scores.threeOfAKind}
+        fieldName="threeOfAKind"
+        setValue={updateValue}
+      />
+      <InputCell value={player.scores.fourOfAKind} fieldName="fourOfAKind" setValue={updateValue} />
+      <InputCell value={player.scores.fullHouse} fieldName="fullHouse" setValue={updateValue} />
+      <InputCell
+        value={player.scores.smallStraight}
+        fieldName="smallStraight"
+        setValue={updateValue}
+      />
+      <InputCell
+        value={player.scores.largeStraight}
+        fieldName="largeStraight"
+        setValue={updateValue}
+      />
+      <InputCell value={player.scores.yahtzee} fieldName="yahtzee" setValue={updateValue} />
+      <InputCell value={player.scores.chance} fieldName="chance" setValue={updateValue} />
+      <InputCell
+        value={player.scores.bonusYahtzees}
+        fieldName="bonusYahtzees"
+        setValue={updateValue}
+      />
+      <div className="cell">{player && player.scores && player.scores.lowerTotal}</div>
+      <div className="cell">{player && player.scores && player.scores.upperTotal}</div>
+      <div className="cell">{player && player.scores && player.scores.total}</div>
     </div>
   );
 };

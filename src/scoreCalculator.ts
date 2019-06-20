@@ -11,11 +11,22 @@ const sumFields = (scores: PlayerScores, fields: string[]): number => {
 };
 
 const upperNumberFields = ['ones', 'twos', 'threes', 'fours', 'fives', 'sixes'];
+const lowerNumberFields = [
+  'threeOfAKind',
+  'fourOfAKind',
+  'fullHouse',
+  'smallStraight',
+  'largeStraight',
+  'yahtzee',
+  'chance',
+];
 
 export const calculateScores = (scores: PlayerScores): PlayerScores => {
   scores.numbersTotal = sumFields(scores, upperNumberFields);
   scores.numbersBonus = scores.numbersTotal >= 63 ? 35 : undefined;
   scores.upperTotal = scores.numbersTotal + getScoreValue(scores, 'numbersBonus');
-
+  scores.lowerTotal =
+    sumFields(scores, lowerNumberFields) + getScoreValue(scores, 'bonusYahtzees') * 100;
+  scores.total = scores.upperTotal + scores.lowerTotal;
   return scores;
 };
