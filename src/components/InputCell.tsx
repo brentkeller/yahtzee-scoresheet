@@ -6,11 +6,14 @@ const InputCell: React.FC<{
   fieldName: string;
   setValue: Function;
 }> = ({ value, fieldName, setValue }) => {
-  const changeValue = (event: any) => setValue(fieldName, +event.target.value);
+  const changeValue = (event: React.ChangeEvent<HTMLInputElement>) =>
+    setValue(fieldName, +event.target.value);
+
+  const displayValue = value ? value.toString() : '';
 
   return (
     <div className="cell">
-      <input type="number" value={value} onChange={changeValue} />
+      <input type="number" value={displayValue} onChange={changeValue} />
     </div>
   );
 };
