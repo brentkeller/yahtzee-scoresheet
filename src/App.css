@@ -1,40 +1,87 @@
 .app {
-  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: 40px auto;
+  min-height: 98vh;
+  margin: 2px;
+  padding-bottom: 10px;
 }
 
-.flex {
+.header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+  padding: 0 6px;
 }
 
-.flex-row {
-  flex-direction: row;
+.header h1 {
+  display: inline;
+  margin: 0;
+  padding: 0;
 }
 
-.flex-column {
-  flex-direction: column;
+.scoresheet {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 2px;
 }
 
-.flex-1 {
-  flex-basis: 1;
+@media (min-width: 600px) {
+  .scoresheet {
+    grid-template-columns: 130px 130px repeat(6, 130px);
+  }
 }
 
-.flex-align-items-start {
-  align-items: flex-start;
-}
-
-.column {
+.section-divider {
+  height: 26px;
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  
+  align-items: center;
+  font-weight: bold;
 }
 
 .cell {
   height: 40px;
   border: solid 1px black;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
   padding: 0 6px;
 }
 
+.instructions {
+  justify-content: center;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+.cell .die-label {
+  display: inline-block;
+  width: 50px;
+}
+
+.cell svg {
+  font-size: 1.6em;
+  margin: 0 4px;
+}
+
+.score-cell {
+  font-size: 1.2em;
+  justify-content: center;
+}
+
+.input-cell {
+  padding: 0;
+}
+
+.input-cell input {
+  width: 40px;
+  margin: auto;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.player-name {
+  justify-content: center;
+}

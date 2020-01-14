@@ -12,7 +12,7 @@ const InputCell: React.FC<{
   const displayValue = value ? value.toString() : '';
 
   return (
-    <div className="cell">
+    <div className="cell input-cell">
       <input type="number" value={displayValue} onChange={changeValue} />
     </div>
   );

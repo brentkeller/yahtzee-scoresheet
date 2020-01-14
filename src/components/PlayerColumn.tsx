@@ -40,17 +40,18 @@ const PlayerColumn: React.FC<{ name: string }> = ({ name }) => {
   };
 
   return (
-    <div className="column">
-      <div className="cell">{player && player.name}</div>
+    <div className="player-column">
+      <div className="cell player-name">{player && player.name}</div>
       <InputCell value={player.scores.ones} fieldName="ones" setValue={updateValue} />
       <InputCell value={player.scores.twos} fieldName="twos" setValue={updateValue} />
       <InputCell value={player.scores.threes} fieldName="threes" setValue={updateValue} />
       <InputCell value={player.scores.fours} fieldName="fours" setValue={updateValue} />
       <InputCell value={player.scores.fives} fieldName="fives" setValue={updateValue} />
       <InputCell value={player.scores.sixes} fieldName="sixes" setValue={updateValue} />
-      <div className="cell">{player && player.scores && player.scores.numbersTotal}</div>
-      <div className="cell">{player && player.scores && player.scores.numbersBonus}</div>
-      <div className="cell">{player && player.scores && player.scores.upperTotal}</div>
+      <div className="cell score-cell">{player && player.scores && player.scores.numbersTotal}</div>
+      <div className="cell score-cell">{player && player.scores && player.scores.numbersBonus}</div>
+      <div className="cell score-cell">{player && player.scores && player.scores.upperTotal}</div>
+      <div className="section-divider"></div>
       <InputCell
         value={player.scores.threeOfAKind}
         fieldName="threeOfAKind"
@@ -75,9 +76,9 @@ const PlayerColumn: React.FC<{ name: string }> = ({ name }) => {
         fieldName="bonusYahtzees"
         setValue={updateValue}
       />
-      <div className="cell">{player && player.scores && player.scores.lowerTotal}</div>
-      <div className="cell">{player && player.scores && player.scores.upperTotal}</div>
-      <div className="cell">{player && player.scores && player.scores.total}</div>
+      <div className="cell score-cell">{player && player.scores && player.scores.lowerTotal}</div>
+      <div className="cell score-cell">{player && player.scores && player.scores.upperTotal}</div>
+      <div className="cell score-cell">{player && player.scores && player.scores.total}</div>
     </div>
   );
 };

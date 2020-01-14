@@ -1,20 +1,47 @@
 import React from 'react';
+import {
+  GiInvertedDice1,
+  GiInvertedDice2,
+  GiInvertedDice3,
+  GiInvertedDice4,
+  GiInvertedDice5,
+  GiInvertedDice6,
+} from 'react-icons/gi';
 import { PlayerColumn } from './PlayerColumn';
 
 export const ScoreSheet: React.FC = () => {
   return (
-    <div className="flex flex-1">
-      <div className="column">
+    <div className="scoresheet">
+      <div>
         <div className="cell">Upper Section</div>
-        <div className="cell">Aces</div>
-        <div className="cell">Twos</div>
-        <div className="cell">Threes</div>
-        <div className="cell">Fours</div>
-        <div className="cell">Fives</div>
-        <div className="cell">Sixes</div>
+        <div className="cell">
+          <span className="die-label">Aces</span>
+          <GiInvertedDice1 />= 1
+        </div>
+        <div className="cell">
+          <span className="die-label">Twos</span>
+          <GiInvertedDice2 />= 2
+        </div>
+        <div className="cell">
+          <span className="die-label">Threes</span>
+          <GiInvertedDice3 />= 3
+        </div>
+        <div className="cell">
+          <span className="die-label">Fours</span>
+          <GiInvertedDice4 />= 4
+        </div>
+        <div className="cell">
+          <span className="die-label">Fives</span>
+          <GiInvertedDice5 />= 5
+        </div>
+        <div className="cell">
+          <span className="die-label">Sixes</span>
+          <GiInvertedDice6 />= 6
+        </div>
         <div className="cell">Total Score</div>
-        <div className="cell">Bonus</div>
-        <div className="cell">Total</div>
+        <div className="cell">Bonus (63+)</div>
+        <div className="cell">Total (Upper)</div>
+        <div className="section-divider">Lower Section</div>
         <div className="cell">3 of a kind</div>
         <div className="cell">4 of a kind</div>
         <div className="cell">Full House</div>
@@ -27,29 +54,41 @@ export const ScoreSheet: React.FC = () => {
         <div className="cell">Total (Upper)</div>
         <div className="cell">Grand Total</div>
       </div>
-      <div className="column">
-        <div className="cell">How to score</div>
-        <div className="cell">Count and add only Aces</div>
-        <div className="cell">Count and add only Twos</div>
-        <div className="cell">Count and add only Threes</div>
-        <div className="cell">Count and add only Fours</div>
-        <div className="cell">Count and add only Fives</div>
-        <div className="cell">Count and add only Sixes</div>
-        <div className="cell" />
-        <div className="cell">Score 35</div>
-        <div className="cell" />
-        <div className="cell">Add total of all dice</div>
-        <div className="cell">Add total of all dice</div>
-        <div className="cell">Score 25</div>
-        <div className="cell">Score 30</div>
-        <div className="cell">Score 40</div>
-        <div className="cell">Score 50</div>
-        <div className="cell">Score total of all dice</div>
-        <div className="cell" />
-        <div className="cell" />
-        <div className="cell" />
-        <div className="cell" />
+      <div>
+        <div className="cell instructions">How to score</div>
+        <div className="cell instructions">Count and add only Aces</div>
+        <div className="cell instructions">Count and add only Twos</div>
+        <div className="cell instructions">Count and add only Threes</div>
+        <div className="cell instructions">Count and add only Fours</div>
+        <div className="cell instructions">Count and add only Fives</div>
+        <div className="cell instructions">Count and add only Sixes</div>
+        <div className="cell instructions" />
+        <div className="cell instructions">Score 35</div>
+        <div className="cell instructions" />
+        <div className="section-divider"></div>
+        <div className="cell instructions">
+          Add total
+          <br />
+          of all dice
+        </div>
+        <div className="cell instructions">
+          Add total
+          <br /> of all dice
+        </div>
+        <div className="cell instructions">Score 25</div>
+        <div className="cell instructions">Score 30</div>
+        <div className="cell instructions">Score 40</div>
+        <div className="cell instructions">Score 50</div>
+        <div className="cell instructions">
+          Score total
+          <br /> of all dice
+        </div>
+        <div className="cell instructions" />
+        <div className="cell instructions" />
+        <div className="cell instructions" />
+        <div className="cell instructions" />
       </div>
+      <PlayerColumn name="Brent" />
       <PlayerColumn name="Brent" />
     </div>
   );
