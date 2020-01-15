@@ -3,7 +3,7 @@ import { GameContext } from './App';
 import { Game } from '../models/game';
 import { Player } from '../models/player';
 
-const NewGameButton: React.FC = () => {
+export const NewGameButton: React.FC = () => {
   const { game, updateGame } = useContext(GameContext);
 
   const newGame = () => {
@@ -16,7 +16,6 @@ const NewGameButton: React.FC = () => {
     if (game) {
       game.addPlayer(new Player('Mike'));
       updateGame(new Game(game));
-      console.log('added');
     }
   };
 
@@ -24,7 +23,6 @@ const NewGameButton: React.FC = () => {
     if (game) {
       game.removePlayer(game.players.length - 1);
       updateGame(new Game(game));
-      console.log('removed');
     }
   };
 
@@ -36,5 +34,3 @@ const NewGameButton: React.FC = () => {
     </div>
   );
 };
-
-export { NewGameButton };

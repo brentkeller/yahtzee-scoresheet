@@ -28,9 +28,9 @@
   margin: 2px;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 768px) {
   .scoresheet {
-    grid-template-columns: 130px 130px repeat(6, 130px);
+    grid-template-columns: 130px 130px repeat(12, 130px);
   }
 }
 
@@ -83,5 +83,5 @@
 }
 
 .player-name {
-  justify-content: center;
+  justify-content: space-around;
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { InputCell } from './InputCell';
 import { Player } from '../models/player';
 
@@ -8,15 +7,14 @@ interface IPlayerColumn {
   updatePlayer: (player: Player) => void;
 }
 
-const PlayerColumn: React.FC<IPlayerColumn> = ({ player, updatePlayer }) => {
+export const PlayerColumn: React.FC<IPlayerColumn> = ({ player, updatePlayer }) => {
   const updateValue = (fieldName: string, value?: number) => {
     player.updateScore(fieldName, value);
     updatePlayer(player);
   };
 
   return (
-    <div className="player-column">
-      <div className="cell player-name">{player && player.name}</div>
+    <>
       <InputCell value={player.scores.ones} fieldName="ones" setValue={updateValue} />
       <InputCell value={player.scores.twos} fieldName="twos" setValue={updateValue} />
       <InputCell value={player.scores.threes} fieldName="threes" setValue={updateValue} />
@@ -54,14 +52,6 @@ const PlayerColumn: React.FC<IPlayerColumn> = ({ player, updatePlayer }) => {
       <div className="cell score-cell">{player && player.scores && player.scores.lowerTotal}</div>
       <div className="cell score-cell">{player && player.scores && player.scores.upperTotal}</div>
       <div className="cell score-cell">{player && player.scores && player.scores.total}</div>
-    </div>
+    </>
   );
 };
-
-// TODO: Fix propTypes
-// PlayerColumn.propTypes = {
-//   player: PropTypes.object.isRequired,
-//   //name: PropTypes.string.isRequired,
-// };
-
-export { PlayerColumn };

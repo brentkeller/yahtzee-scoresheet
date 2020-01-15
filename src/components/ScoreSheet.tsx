@@ -7,10 +7,12 @@ import {
   GiInvertedDice5,
   GiInvertedDice6,
 } from 'react-icons/gi';
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { PlayerColumn } from './PlayerColumn';
 import { GameContext } from './App';
 import { Player } from '../models/player';
 import { Game } from '../models/game';
+import { Mobile, Default } from './Responsive';
 
 export const ScoreSheet: React.FC = () => {
   const { game, updateGame } = useContext(GameContext);
@@ -21,6 +23,25 @@ export const ScoreSheet: React.FC = () => {
       updateGame(new Game(game));
     }
   };
+
+  const nextPlayer = () => {
+    if (game) {
+      game.changePlayerIndex(1);
+      updateGame(new Game(game));
+    }
+  };
+
+  const prevPlayer = () => {
+    if (game) {
+      game.changePlayerIndex(-1);
+      updateGame(new Game(game));
+    }
+  };
+
+  let currentPlayer;
+  if (game && game.players.length > 0 && game.currentPlayerIndex >= 0) {
+    currentPlayer = game.players[game.currentPlayerIndex];
+  }
 
   return (
     <div className="scoresheet">
@@ -100,11 +121,38 @@ export const ScoreSheet: React.FC = () => {
         <div className="cell instructions" />
         <div className="cell instructions" />
       </div>
-      {game &&
-        game.players.length > 0 &&
-        game.players.map(p => {
-          return <PlayerColumn player={p} updatePlayer={updatePlayer} key={p.id} />;
-        })}
+      <Mobile>
+        {currentPlayer ? (
+          <div>
+            <div className="cell player-name">
+              <MdChevronLeft onClick={prevPlayer} />
+              {currentPlayer.name}
+              <MdChevronRight onClick={nextPlayer} />
+            </div>
+            <PlayerColumn
+              player={currentPlayer}
+              updatePlayer={updatePlayer}
+              key={currentPlayer.id}
+            />
+          </div>
+        ) : (
+          <p>No player</p>
+        )}
+      </Mobile>
+      <Default>
+        {game?.players && game?.players.length > 0 ? (
+          game?.players.map(p => {
+            return (
+              <div key={p.id}>
+                <div className="cell player-name">{p.name}</div>
+                <PlayerColumn player={p} updatePlayer={updatePlayer} />
+              </div>
+            );
+          })
+        ) : (
+          <p>No players</p>
+        )}
+      </Default>
     </div>
   );
 };

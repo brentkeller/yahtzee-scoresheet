@@ -3,7 +3,7 @@ import { Player } from './player';
 export class Game {
   date: Date;
   players: Player[];
-  currentPlayerIndex?: number;
+  currentPlayerIndex: number;
 
   constructor(game?: Game) {
     if (game) {
@@ -13,26 +13,29 @@ export class Game {
     } else {
       this.date = new Date();
       this.players = [];
+      this.currentPlayerIndex = 0;
     }
   }
 
   addPlayer(player: Player) {
     if (!this.players) this.players = [];
     this.players.push(player);
-    if (!this.currentPlayerIndex) this.currentPlayerIndex = 0;
   }
 
   removePlayer(index: number) {
     this.players.splice(index, 1);
-    if (this.currentPlayerIndex) {
-      if (this.currentPlayerIndex > this.players.length - 1)
-        this.currentPlayerIndex = this.players.length - 1;
-      if (this.currentPlayerIndex < 0) this.currentPlayerIndex = undefined;
-    }
+    if (this.currentPlayerIndex > this.players.length) this.currentPlayerIndex--;
   }
 
   updatePlayer(player: Player) {
     const index = this.players.findIndex(p => p.id === player.id);
     this.players[index] = player;
+  }
+
+  changePlayerIndex(increment: number) {
+    const newIndex = this.currentPlayerIndex + increment;
+    this.currentPlayerIndex = newIndex;
+    if (this.currentPlayerIndex >= this.players.length) this.currentPlayerIndex = 0;
+    if (this.currentPlayerIndex < 0) this.currentPlayerIndex = this.players.length - 1;
   }
 }

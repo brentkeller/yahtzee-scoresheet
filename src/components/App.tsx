@@ -14,7 +14,7 @@ export const GameContext = React.createContext<IGameContext>({
   updateGame: (game?: Game) => {},
 });
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   const [game, setGame] = useState<Game | undefined>();
 
   return (
@@ -26,12 +26,8 @@ const App: React.FC = () => {
             <NewGameButton />
           </div>
         </header>
-        <div className="body">
-          <ScoreSheet />
-        </div>
+        <div className="body">{game ? <ScoreSheet /> : <p>Start a new game</p>}</div>
       </main>
     </GameContext.Provider>
   );
 };
-
-export default App;
