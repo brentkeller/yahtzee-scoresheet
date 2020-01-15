@@ -1,3 +1,6 @@
+import uuid from 'uuid/v4';
+import { calculateScores } from './scoreCalculator';
+
 export class PlayerScores {
   ones?: number;
   twos?: number;
@@ -22,11 +25,19 @@ export class PlayerScores {
 }
 
 export class Player {
+  id: string;
   name: string;
   scores: PlayerScores;
 
   constructor(name: string) {
+    this.id = uuid();
     this.name = name;
     this.scores = new PlayerScores();
+  }
+
+  updateScore(fieldName: string, value?: number) {
+    const scores = { ...this.scores };
+    scores[fieldName] = value;
+    this.scores = calculateScores(scores);
   }
 }

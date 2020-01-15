@@ -1,42 +1,17 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { InputCell } from './InputCell';
-import { Player } from '../player';
-import { calculateScores } from '../scoreCalculator';
+import { Player } from '../models/player';
 
-enum ActionType {
-  SetScore = 'SetScore',
+interface IPlayerColumn {
+  player: Player;
+  updatePlayer: (player: Player) => void;
 }
 
-interface PlayerAction {
-  type: ActionType;
-  payload: {
-    fieldName: string;
-    value?: number;
-  };
-}
-
-const playerReducer: React.Reducer<Player, PlayerAction> = (state, action) => {
-  switch (action.type) {
-    case ActionType.SetScore: {
-      const scores = { ...state.scores };
-      scores[action.payload.fieldName] = action.payload.value;
-      return {
-        ...state,
-        scores: calculateScores(scores),
-      };
-    }
-  }
-};
-
-const PlayerColumn: React.FC<{ name: string }> = ({ name }) => {
-  const [player, dispatch] = useReducer<React.Reducer<Player, PlayerAction>>(
-    playerReducer,
-    new Player(name),
-  );
-
+const PlayerColumn: React.FC<IPlayerColumn> = ({ player, updatePlayer }) => {
   const updateValue = (fieldName: string, value?: number) => {
-    dispatch({ type: ActionType.SetScore, payload: { fieldName, value } });
+    player.updateScore(fieldName, value);
+    updatePlayer(player);
   };
 
   return (
@@ -83,8 +58,10 @@ const PlayerColumn: React.FC<{ name: string }> = ({ name }) => {
   );
 };
 
-PlayerColumn.propTypes = {
-  name: PropTypes.string.isRequired,
-};
+// TODO: Fix propTypes
+// PlayerColumn.propTypes = {
+//   player: PropTypes.object.isRequired,
+//   //name: PropTypes.string.isRequired,
+// };
 
 export { PlayerColumn };

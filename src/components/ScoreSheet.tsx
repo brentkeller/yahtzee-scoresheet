@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   GiInvertedDice1,
   GiInvertedDice2,
@@ -8,8 +8,20 @@ import {
   GiInvertedDice6,
 } from 'react-icons/gi';
 import { PlayerColumn } from './PlayerColumn';
+import { GameContext } from './App';
+import { Player } from '../models/player';
+import { Game } from '../models/game';
 
 export const ScoreSheet: React.FC = () => {
+  const { game, updateGame } = useContext(GameContext);
+
+  const updatePlayer = (player: Player) => {
+    if (game) {
+      game.updatePlayer(player);
+      updateGame(new Game(game));
+    }
+  };
+
   return (
     <div className="scoresheet">
       <div>
@@ -88,8 +100,11 @@ export const ScoreSheet: React.FC = () => {
         <div className="cell instructions" />
         <div className="cell instructions" />
       </div>
-      <PlayerColumn name="Brent" />
-      <PlayerColumn name="Brent" />
+      {game &&
+        game.players.length > 0 &&
+        game.players.map(p => {
+          return <PlayerColumn player={p} updatePlayer={updatePlayer} key={p.id} />;
+        })}
     </div>
   );
 };
