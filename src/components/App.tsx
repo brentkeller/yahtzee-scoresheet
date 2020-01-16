@@ -49,19 +49,21 @@ export const App: React.FC = () => {
   };
 
   return (
-    <GameContext.Provider value={{ game, updateGame }}>
-      <main className="app">
-        <header className="header">
-          <h1>Yahtzee</h1>
-          <div>
-            <Button onClick={showMenu}>Players</Button>
+    <React.StrictMode>
+      <GameContext.Provider value={{ game, updateGame }}>
+        <main className="app">
+          <header className="header">
+            <h1>Yahtzee</h1>
+            <div>
+              <Button onClick={showMenu}>Players</Button>
+            </div>
+          </header>
+          <div className="body">
+            {game ? <ScoreSheet /> : <Button onClick={startNewGame}>New Game</Button>}
           </div>
-        </header>
-        <div className="body">
-          {game ? <ScoreSheet /> : <Button onClick={startNewGame}>New Game</Button>}
-        </div>
-        <GameMenu onClose={hideMenu} isOpen={menuVisible} />
-      </main>
-    </GameContext.Provider>
+          <GameMenu onClose={hideMenu} isOpen={menuVisible} />
+        </main>
+      </GameContext.Provider>
+    </React.StrictMode>
   );
 };
