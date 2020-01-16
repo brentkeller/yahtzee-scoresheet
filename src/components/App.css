@@ -1,3 +1,9 @@
+:root {
+  --color-brand: #279ef5;
+  --scribble-font-family: 'Rock Salt', cursive;
+  --scribble-font-size: 0.9em;
+}
+
 .app {
   border: 1px solid black;
   border-radius: 10px;
@@ -20,6 +26,13 @@
   display: inline;
   margin: 0;
   padding: 0;
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 }
 
 .scoresheet {
@@ -67,9 +80,9 @@
 }
 
 .score-cell {
-  font-size: 1.2em;
   justify-content: center;
-  font-family: 'Rock Salt', cursive;
+  font-family: var(--scribble-font-family);
+  font-size: var(--scribble-font-size);
 }
 
 .input-cell {
@@ -78,14 +91,29 @@
 
 .input-cell input {
   width: 100%;
-  font-size: 0.9em;
   text-align: center;
-  font-family: 'Rock Salt', cursive;
+  font-family: var(--scribble-font-family);
+  font-size: var(--scribble-font-size);
 }
 
 .player-name {
   justify-content: space-around;
-  font-family: 'Rock Salt', cursive;
+  font-family: var(--scribble-font-family);
+  font-size: var(--scribble-font-size);
+}
+
+.btn {
+  background-color: var(--color-brand);
+  color: white;
+  border: 1px solid var(--color-brand);
+  padding: 5px;
+  border-radius: 6px;
+}
+
+.btn.outline {
+  background-color: white;
+  color: var(--color-brand);
+  border: 1px solid var(--color-brand);
 }
 
 /* 

@@ -22,9 +22,11 @@ export class Game {
     this.players.push(player);
   }
 
-  removePlayer(index: number) {
+  removePlayer(player: Player) {
+    const index = this.players.findIndex(p => p.id === player.id);
     this.players.splice(index, 1);
-    if (this.currentPlayerIndex > this.players.length) this.currentPlayerIndex--;
+    this.currentPlayerIndex = 0;
+    //if (this.currentPlayerIndex >= this.players.length) this.currentPlayerIndex--;
   }
 
   updatePlayer(player: Player) {
@@ -37,5 +39,9 @@ export class Game {
     this.currentPlayerIndex = newIndex;
     if (this.currentPlayerIndex >= this.players.length) this.currentPlayerIndex = 0;
     if (this.currentPlayerIndex < 0) this.currentPlayerIndex = this.players.length - 1;
+  }
+
+  reset() {
+    this.players.forEach(p => p.reset());
   }
 }

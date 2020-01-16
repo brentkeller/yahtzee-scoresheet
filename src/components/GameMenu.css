@@ -1,0 +1,94 @@
+.game-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-menu__container {
+  width: 370px;
+  min-height: 500px;
+  background-color: white;
+  border: 2px solid var(--color-brand);
+  padding: 5px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0px 4px 9px 2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 4px 9px 2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 4px 9px 2px rgba(0, 0, 0, 0.75);
+}
+
+.game-menu__close {
+  float: right;
+  font-size: 1.6em;
+}
+
+.game-menu__container h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.game-menu__buttons {
+  display: flex;
+  justify-content: space-around;
+  margin: 8px 0;
+}
+
+.game-menu__container h3 {
+  margin: 6px 0;
+}
+
+.game-menu__player-list {
+  padding: 0;
+  margin-top: 0;
+  list-style-type: none;
+}
+
+.game-menu__player-list li {
+  display: grid;
+  grid-template-columns: auto 80px 50px;
+  margin-bottom: 8px;
+}
+
+.game-menu__player-name {
+  grid-column: 1/1;
+}
+
+.game-menu__player-score {
+  grid-column: 2/2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-menu__player-score-value {
+  font-family: var(--scribble-font-family);
+  font-size: var(--scribble-font-size);
+}
+
+.game-menu__player-action {
+  grid-column: 3/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7em;
+}
+
+.game-menu__player-action .remove-player {
+  color: red;
+}
+
+.game-menu__player-action .add-player {
+  color: var(--color-brand);
+}
+
+.name-input {
+  font-family: var(--scribble-font-family);
+  font-size: var(--scribble-font-size);
+  border: 1px dotted #999999;
+  padding: 4px;
+}

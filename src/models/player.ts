@@ -40,4 +40,8 @@ export class Player {
     scores[fieldName] = value;
     this.scores = calculateScores(scores);
   }
+
+  reset() {
+    this.scores = new PlayerScores();
+  }
 }
