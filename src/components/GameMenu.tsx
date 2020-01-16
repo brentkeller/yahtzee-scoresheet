@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { useSpring, animated } from 'react-spring';
 import { MdClose, MdAddCircle, MdRemoveCircle } from 'react-icons/md';
 import './GameMenu.css';
 import { GameContext } from './App';
@@ -7,12 +8,16 @@ import { Player } from '../models/player';
 import { Button } from './Button';
 
 interface IGameMenu {
+  isOpen: boolean;
   onClose: () => void;
 }
 
 export const GameMenu: React.FC<IGameMenu> = props => {
   const { game, updateGame } = useContext(GameContext);
   const [newPlayerName, setNewPlayerName] = useState('');
+  const open = useSpring({
+    transform: props.isOpen ? `translate3d(0,0,0)` : `translate3d(0,-100vh,  0)`,
+  });
 
   const getGame = () => game || new Game();
 
@@ -57,7 +62,7 @@ export const GameMenu: React.FC<IGameMenu> = props => {
   };
 
   return (
-    <div className="game-menu" onClick={closeMenu}>
+    <animated.div style={open} className="game-menu" onClick={closeMenu}>
       <div className="game-menu__container" onClick={containerClick}>
         <MdClose onClick={closeMenu} className="game-menu__close" />
         <h2>Game Menu</h2>
@@ -110,6 +115,6 @@ export const GameMenu: React.FC<IGameMenu> = props => {
           </li>
         </ul>
       </div>
-    </div>
+    </animated.div>
   );
 };

@@ -39,7 +39,7 @@ export const App: React.FC = () => {
         <div className="body">
           {game ? <ScoreSheet /> : <Button onClick={startNewGame}>New Game</Button>}
         </div>
-        {menuVisible && <GameMenu onClose={hideMenu} />}
+        <GameMenu onClose={hideMenu} isOpen={menuVisible} />
       </main>
     </GameContext.Provider>
   );
