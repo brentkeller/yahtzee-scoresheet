@@ -28,7 +28,7 @@
     "lint": "eslint ./src/**/*.{ts,tsx}",
     "eslint-check": "eslint --print-config path/to/main.js | eslint-config-prettier-check",
     "gensw": "workbox injectManifest",
-    "clean-cra-sw": "del /Q build\\precache-manifest.*.js && del /Q build\\service-worker.js",
+    "clean-cra-sw": "rimraf build/precache-manifest.*.js && rimraf build/service-worker.js",
     "build": "yarn run cra-build && yarn run gensw && yarn run clean-cra-sw",
     "serve": "serve -s build"
   },
@@ -51,6 +51,7 @@
     "eslint-config-react": "1.1.7",
     "eslint-plugin-prettier": "3.1.2",
     "prettier": "1.19.1",
+    "rimraf": "^3.0.0",
     "serve": "^11.3.0",
     "workbox-cli": "^4.3.1"
   }
