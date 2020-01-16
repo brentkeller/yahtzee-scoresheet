@@ -9,7 +9,7 @@ const InputCell: React.FC<{
   const changeValue = (event: React.ChangeEvent<HTMLInputElement>) =>
     setValue(fieldName, +event.target.value);
 
-  const displayValue = value ? value.toString() : '';
+  const displayValue = value !== undefined ? value.toString() : '';
 
   return (
     <div className="cell input-cell">
