@@ -38,6 +38,7 @@ export const ScoreSheet: React.FC = () => {
     }
   };
 
+  const multiplePlayers = game && game.players.length > 1;
   let currentPlayer;
   if (game && game.players.length > 0 && game.currentPlayerIndex >= 0) {
     currentPlayer = game.players[game.currentPlayerIndex];
@@ -125,9 +126,9 @@ export const ScoreSheet: React.FC = () => {
         {currentPlayer ? (
           <div>
             <div className="cell player-name">
-              <MdChevronLeft onClick={prevPlayer} />
+              {multiplePlayers && <MdChevronLeft onClick={prevPlayer} />}
               {currentPlayer.name}
-              <MdChevronRight onClick={nextPlayer} />
+              {multiplePlayers && <MdChevronRight onClick={nextPlayer} />}
             </div>
             <PlayerColumn
               player={currentPlayer}
@@ -136,7 +137,7 @@ export const ScoreSheet: React.FC = () => {
             />
           </div>
         ) : (
-          <p>No player</p>
+          <p>No players</p>
         )}
       </Mobile>
       <Default>
