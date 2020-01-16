@@ -24,6 +24,12 @@ export class PlayerScores {
   [key: string]: number | undefined; // Index signature
 }
 
+export interface PlayerData {
+  id: string;
+  name: string;
+  scores: PlayerScores;
+}
+
 export class Player {
   id: string;
   name: string;
@@ -43,5 +49,12 @@ export class Player {
 
   reset() {
     this.scores = new PlayerScores();
+  }
+
+  static fromData(p: PlayerData) {
+    const newPlayer = new this(p.name);
+    newPlayer.id = p.id;
+    newPlayer.scores = p.scores;
+    return newPlayer;
   }
 }
