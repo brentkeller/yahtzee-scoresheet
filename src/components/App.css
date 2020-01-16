@@ -69,6 +69,7 @@
 .score-cell {
   font-size: 1.2em;
   justify-content: center;
+  font-family: 'Rock Salt', cursive;
 }
 
 .input-cell {
@@ -76,12 +77,36 @@
 }
 
 .input-cell input {
-  width: 40px;
-  margin: auto;
-  font-size: 1.2em;
+  width: 100%;
+  font-size: 0.9em;
   text-align: center;
+  font-family: 'Rock Salt', cursive;
 }
 
 .player-name {
   justify-content: space-around;
+  font-family: 'Rock Salt', cursive;
 }
+
+/* 
+font testing
+    <link
+      href="https://fonts.googleapis.com/css?family=Architects+Daughter|Patrick+Hand|Permanent+Marker|Rock+Salt|Schoolbell&display=swap"
+      rel="stylesheet"
+    />
+
+.font-marker {
+  font-family: 'Permanent Marker', cursive;
+}
+.font-patrick {
+  font-family: 'Patrick Hand', cursive;
+}
+.font-architect {
+  font-family: 'Architects Daughter', cursive;
+}
+.font-rocksalt {
+  font-family: 'Rock Salt', cursive;
+}
+.font-schoolbell {
+  font-family: 'Schoolbell', cursive;
+} */
