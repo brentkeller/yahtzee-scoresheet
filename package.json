@@ -21,12 +21,16 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "cra-build": "react-scripts build",
     "test": "react-scripts test",
     "watch": "react-scripts test --watch",
     "eject": "react-scripts eject",
     "lint": "eslint ./src/**/*.{ts,tsx}",
-    "eslint-check": "eslint --print-config path/to/main.js | eslint-config-prettier-check"
+    "eslint-check": "eslint --print-config path/to/main.js | eslint-config-prettier-check",
+    "gensw": "workbox injectManifest",
+    "clean-cra-sw": "del /Q build\\precache-manifest.*.js && del /Q build\\service-worker.js",
+    "build": "yarn run cra-build && yarn run gensw && yarn run clean-cra-sw",
+    "serve": "serve -s build"
   },
   "browserslist": {
     "production": [
@@ -46,6 +50,8 @@
     "eslint-config-prettier": "6.7.0",
     "eslint-config-react": "1.1.7",
     "eslint-plugin-prettier": "3.1.2",
-    "prettier": "1.19.1"
+    "prettier": "1.19.1",
+    "serve": "^11.3.0",
+    "workbox-cli": "^4.3.1"
   }
 }
