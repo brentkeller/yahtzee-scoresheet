@@ -7,6 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-y: auto;
 }
 
 .game-menu__container {
@@ -50,7 +51,7 @@
 
 .game-menu__player-list li {
   display: grid;
-  grid-template-columns: auto 80px 50px;
+  grid-template-columns: 220px 80px 50px;
   margin-bottom: 8px;
 }
 
@@ -89,6 +90,16 @@
 .name-input {
   font-family: var(--scribble-font-family);
   font-size: var(--scribble-font-size);
-  border: 1px dotted #999999;
+  border: 1px dotted transparent;
   padding: 4px;
+  width: 200px;
+}
+
+.name-input.new-player {
+  border-bottom: 1px dotted #999999;
+}
+
+.name-input:focus {
+  border: 1px dotted #999999;
+  outline-color: var(--color-brand);
 }

@@ -16,7 +16,7 @@ export const GameMenu: React.FC<IGameMenu> = props => {
   const { game, updateGame } = useContext(GameContext);
   const [newPlayerName, setNewPlayerName] = useState('');
   const open = useSpring({
-    transform: props.isOpen ? `translate3d(0,0,0)` : `translate3d(0,-100vh,  0)`,
+    transform: props.isOpen ? `translate3d(0,0,0)` : `translate3d(0,-1000px,  0)`,
   });
 
   const getGame = () => game || new Game();
@@ -108,7 +108,7 @@ export const GameMenu: React.FC<IGameMenu> = props => {
             <div className="game-menu__player-name">
               <input
                 type="text"
-                className="name-input"
+                className="name-input new-player"
                 placeholder="Enter a name..."
                 value={newPlayerName}
                 onChange={newPlayerNameChange}

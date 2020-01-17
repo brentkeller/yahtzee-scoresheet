@@ -10,7 +10,7 @@ const storageKey = 'yahtzeegame';
 
 const loadGame = () => {
   let data = localStorage.getItem(storageKey);
-  if (!data) return new Game();
+  if (!data) return undefined;
   let game = JSON.parse(data);
   // rehydrate class instances
   game.players = game.players.map((p: PlayerData) => Player.fromData(p));
@@ -54,12 +54,16 @@ export const App: React.FC = () => {
         <main className="app">
           <header className="header">
             <h1>Yahtzee</h1>
-            <div>
-              <Button onClick={showMenu}>Players</Button>
-            </div>
+            <Button onClick={showMenu}>Players</Button>
           </header>
           <div className="body">
-            {game ? <ScoreSheet /> : <Button onClick={startNewGame}>New Game</Button>}
+            {game ? (
+              <ScoreSheet />
+            ) : (
+              <div className="no-content">
+                <Button onClick={startNewGame}>New Game</Button>
+              </div>
+            )}
           </div>
           <GameMenu onClose={hideMenu} isOpen={menuVisible} />
         </main>
