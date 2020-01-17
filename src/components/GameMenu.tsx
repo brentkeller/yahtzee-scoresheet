@@ -57,8 +57,13 @@ export const GameMenu: React.FC<IGameMenu> = props => {
     _game.updatePlayer(player);
     updateGame(new Game(_game));
   };
+
   const newPlayerNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewPlayerName(event.target.value);
+  };
+
+  const newPlayerKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter' && newPlayerName.length > 0) addPlayer();
   };
 
   return (
@@ -107,6 +112,7 @@ export const GameMenu: React.FC<IGameMenu> = props => {
                 placeholder="Enter a name..."
                 value={newPlayerName}
                 onChange={newPlayerNameChange}
+                onKeyPress={newPlayerKeyPress}
               />
             </div>
             <div className="game-menu__player-action">
