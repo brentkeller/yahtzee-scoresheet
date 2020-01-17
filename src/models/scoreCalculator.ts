@@ -25,8 +25,17 @@ export const calculateScores = (scores: PlayerScores): PlayerScores => {
   scores.numbersTotal = sumFields(scores, upperNumberFields);
   scores.numbersBonus = scores.numbersTotal >= 63 ? 35 : undefined;
   scores.upperTotal = scores.numbersTotal + getScoreValue(scores, 'numbersBonus');
-  scores.lowerTotal =
-    sumFields(scores, lowerNumberFields) + getScoreValue(scores, 'bonusYahtzees') * 100;
+  scores.lowerTotal = sumFields(scores, lowerNumberFields) + calculateYahtzeeBonuses(scores);
   scores.total = scores.upperTotal + scores.lowerTotal;
   return scores;
+};
+
+const calculateYahtzeeBonuses = (scores: PlayerScores): number => {
+  if (getScoreValue(scores, 'yahtzee') === 0) return 0;
+  let bonusTotal = 0;
+  if (scores.yahtzeeBonus1 === 1) bonusTotal += 100;
+  if (scores.yahtzeeBonus2 === 1) bonusTotal += 100;
+  if (scores.yahtzeeBonus3 === 1) bonusTotal += 100;
+  if (scores.yahtzeeBonus4 === 1) bonusTotal += 100;
+  return bonusTotal;
 };

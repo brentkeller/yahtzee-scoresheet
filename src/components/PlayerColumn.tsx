@@ -1,5 +1,6 @@
 import React from 'react';
 import { InputCell } from './InputCell';
+import { YahtzeeBonusInput } from './YahtzeeBonusInput';
 import { Player } from '../models/player';
 
 interface IPlayerColumn {
@@ -12,6 +13,8 @@ export const PlayerColumn: React.FC<IPlayerColumn> = ({ player, updatePlayer }) 
     player.updateScore(fieldName, value);
     updatePlayer(player);
   };
+
+  const bonusCellClass = player.scores.yahtzee ? '' : 'disabled';
 
   return (
     <>
@@ -44,11 +47,28 @@ export const PlayerColumn: React.FC<IPlayerColumn> = ({ player, updatePlayer }) 
       />
       <InputCell value={player.scores.yahtzee} fieldName="yahtzee" setValue={updateValue} />
       <InputCell value={player.scores.chance} fieldName="chance" setValue={updateValue} />
-      <InputCell
-        value={player.scores.bonusYahtzees}
-        fieldName="bonusYahtzees"
-        setValue={updateValue}
-      />
+      <div className={`cell ${bonusCellClass}`}>
+        <YahtzeeBonusInput
+          value={player.scores.yahtzeeBonus1}
+          fieldName="yahtzeeBonus1"
+          setValue={updateValue}
+        />
+        <YahtzeeBonusInput
+          value={player.scores.yahtzeeBonus2}
+          fieldName="yahtzeeBonus2"
+          setValue={updateValue}
+        />
+        <YahtzeeBonusInput
+          value={player.scores.yahtzeeBonus3}
+          fieldName="yahtzeeBonus3"
+          setValue={updateValue}
+        />
+        <YahtzeeBonusInput
+          value={player.scores.yahtzeeBonus4}
+          fieldName="yahtzeeBonus4"
+          setValue={updateValue}
+        />
+      </div>
       <div className="cell score-cell">{player && player.scores && player.scores.lowerTotal}</div>
       <div className="cell score-cell">{player && player.scores && player.scores.upperTotal}</div>
       <div className="cell score-cell">{player && player.scores && player.scores.total}</div>

@@ -115,11 +115,21 @@ describe('calculateScores adds lower score values to totals', () => {
     expect(result.total).toBe(scores.chance);
   });
 
-  it.each([undefined, 0, 1, 3])('adds 100 for each bonus yahtzee', value => {
-    scores.bonusYahtzees = value;
-    const expected = 100 * (value || 0);
+  it('does not include bonuses if yahtzee is empty', () => {
+    scores.yahtzeeBonus1 = 1;
     const result = calculateScores(scores);
-    expect(result.lowerTotal).toBe(expected);
-    expect(result.total).toBe(expected);
+    expect(result.lowerTotal).toBe(0);
+    expect(result.total).toBe(0);
+  });
+
+  it('includes bonuses if yahtzee is filled', () => {
+    scores.yahtzee = 50;
+    scores.yahtzeeBonus1 = 1;
+    scores.yahtzeeBonus2 = 1;
+    scores.yahtzeeBonus3 = 1;
+    scores.yahtzeeBonus4 = 1;
+    const result = calculateScores(scores);
+    expect(result.lowerTotal).toBe(450);
+    expect(result.total).toBe(450);
   });
 });

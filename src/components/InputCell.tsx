@@ -1,11 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { IInputProps } from './interfaces';
 
-const InputCell: React.FC<{
-  value?: number;
-  fieldName: string;
-  setValue: Function;
-}> = ({ value, fieldName, setValue }) => {
+const InputCell: React.FC<IInputProps> = ({ value, fieldName, setValue }) => {
   const changeValue = (event: React.ChangeEvent<HTMLInputElement>) =>
     setValue(fieldName, +event.target.value);
 

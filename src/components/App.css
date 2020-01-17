@@ -102,6 +102,10 @@
   font-size: var(--scribble-font-size);
 }
 
+.cell.disabled svg {
+  color: #ccc;
+}
+
 .btn {
   background-color: var(--color-brand);
   color: white;

@@ -18,7 +18,10 @@ export class PlayerScores {
   largeStraight?: number;
   yahtzee?: number;
   chance?: number;
-  bonusYahtzees?: number;
+  yahtzeeBonus1?: number;
+  yahtzeeBonus2?: number;
+  yahtzeeBonus3?: number;
+  yahtzeeBonus4?: number;
   lowerTotal?: number;
   total?: number;
   [key: string]: number | undefined; // Index signature
@@ -43,6 +46,12 @@ export class Player {
 
   updateScore(fieldName: string, value?: number) {
     const scores = { ...this.scores };
+    // Only update bonuses if yahtzee has been filled
+    if (
+      !this.scores.yahtzee &&
+      ['yahtzeeBonus1', 'yahtzeeBonus2', 'yahtzeeBonus3', 'yahtzeeBonus4'].includes(fieldName)
+    )
+      return;
     scores[fieldName] = value;
     this.scores = calculateScores(scores);
   }
