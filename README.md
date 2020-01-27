@@ -1,10 +1,10 @@
 # Yahtzee Scoresheet
 
-A simple Yahtzee score sheet built as an exercise to try out TypeScript with the React Hooks API. The production app is an installable PWA. The current game (players and their scores) as stored in local storage so the game survives across browsing sessions. The service worker ensures that the app still works while offline. I've deployed a production build to [Zeit Now](https://zeit.co/).
+A simple Yahtzee score sheet built as an exercise to try out TypeScript with the React Hooks API. The production app is an installable PWA. The current game (players and their scores) as stored in local storage so the game survives across browsing sessions. The service worker ensures that the app still works while offline. I've deployed a production build with [Zeit Now](https://zeit.co/).
 
 Live app: [https://yahtzeescores.now.sh/](https://yahtzeescores.now.sh/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was started using [Create React App](https://github.com/facebook/create-react-app).
 
 ## Scripts
 
