@@ -43,7 +43,7 @@
 
 @media (min-width: 768px) {
   .scoresheet {
-    grid-template-columns: 130px 130px repeat(12, 130px);
+    grid-template-columns: repeat(auto-fill, 130px);
   }
 }
 
