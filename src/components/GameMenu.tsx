@@ -30,7 +30,7 @@ export const GameMenu: React.FC<IGameMenu> = props => {
   };
 
   const resetGame = () => {
-    let _game = getGame();
+    const _game = getGame();
     _game.reset();
     updateGame(new Game(_game));
   };
@@ -40,7 +40,7 @@ export const GameMenu: React.FC<IGameMenu> = props => {
   };
 
   const addPlayer = () => {
-    let _game = getGame();
+    const _game = getGame();
     _game.addPlayer(new Player(newPlayerName));
     updateGame(new Game(_game));
     setNewPlayerName('');

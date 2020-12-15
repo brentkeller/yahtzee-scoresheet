@@ -9,9 +9,9 @@ import { Button } from './Button';
 const storageKey = 'yahtzeegame';
 
 const loadGame = () => {
-  let data = localStorage.getItem(storageKey);
+  const data = localStorage.getItem(storageKey);
   if (!data) return undefined;
-  let game = JSON.parse(data);
+  const game = JSON.parse(data);
   // rehydrate class instances
   game.players = game.players.map((p: PlayerData) => Player.fromData(p));
   return new Game(game);
@@ -28,7 +28,9 @@ interface IGameContext {
 
 export const GameContext = React.createContext<IGameContext>({
   game: loadGame(),
-  updateGame: (game?: Game) => {},
+  updateGame: (game?: Game) => {
+    return;
+  },
 });
 
 export const App: React.FC = () => {
