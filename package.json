@@ -4,20 +4,20 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "@types/jest": "24.0.24",
-    "@types/node": "12.12.21",
-    "@types/react": "16.9.16",
-    "@types/react-dom": "16.9.4",
+    "@types/jest": "29.5.12",
+    "@types/node": "22.5.0",
+    "@types/react": "18.3.4",
+    "@types/react-dom": "18.3.0",
     "@types/react-responsive": "^8.0.2",
-    "@types/uuid": "^3.4.6",
-    "react": "16.12.0",
-    "react-dom": "16.12.0",
-    "react-icons": "^3.8.0",
-    "react-responsive": "^8.0.1",
-    "react-scripts": "4.0.1",
-    "react-spring": "^8.0.27",
-    "typescript": "3.7.3",
-    "uuid": "^3.3.3"
+    "@types/uuid": "^10.0.0",
+    "react": "^18.3.1",
+    "react-dom": "18.3.1",
+    "react-icons": "^5.3.0",
+    "react-responsive": "^10.0.0",
+    "react-scripts": "^5.0.1",
+    "react-spring": "^9.7.4",
+    "typescript": "5.5.4",
+    "uuid": "^10.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -43,14 +43,12 @@
     ]
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "2.12.0",
-    "@typescript-eslint/parser": "2.12.0",
-    "eslint-config-prettier": "6.7.0",
+    "@typescript-eslint/parser": "8.2.0",
     "eslint-config-react": "1.1.7",
-    "eslint-plugin-prettier": "3.1.2",
-    "prettier": "1.19.1",
-    "rimraf": "^3.0.0",
-    "serve": "^11.3.0",
-    "workbox-cli": "^4.3.1"
+    "eslint-plugin-prettier": "5.2.1",
+    "prettier": "3.3.3",
+    "rimraf": "^6.0.1",
+    "serve": "^14.2.3",
+    "workbox-cli": "^7.1.0"
   }
 }
