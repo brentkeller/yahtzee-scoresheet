@@ -1,0 +1,7 @@
+# Ignore artifacts:
+build
+coverage
+
+# Project specific
+src/serviceWorker.ts
+src/**/__tests__/**

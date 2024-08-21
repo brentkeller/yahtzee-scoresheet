@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import './App.css';
-import { Game } from '../models/game';
-import { Player, PlayerData } from '../models/player';
-import { ScoreSheet } from './ScoreSheet';
-import { GameMenu } from './GameMenu';
-import { Button } from './Button';
+import React, { useState } from "react";
+import "./App.css";
+import { Game } from "../models/game";
+import { Player, PlayerData } from "../models/player";
+import { ScoreSheet } from "./ScoreSheet";
+import { GameMenu } from "./GameMenu";
+import { Button } from "./Button";
 
-const storageKey = 'yahtzeegame';
+const storageKey = "yahtzeegame";
 
 const loadGame = () => {
   const data = localStorage.getItem(storageKey);

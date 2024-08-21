@@ -1,5 +1,5 @@
-import { v4 as uuid } from 'uuid';
-import { calculateScores } from './scoreCalculator';
+import { v4 as uuid } from "uuid";
+import { calculateScores } from "./scoreCalculator";
 
 export class PlayerScores {
   ones?: number;
@@ -49,7 +49,12 @@ export class Player {
     // Only update bonuses if yahtzee has been filled
     if (
       !this.scores.yahtzee &&
-      ['yahtzeeBonus1', 'yahtzeeBonus2', 'yahtzeeBonus3', 'yahtzeeBonus4'].includes(fieldName)
+      [
+        "yahtzeeBonus1",
+        "yahtzeeBonus2",
+        "yahtzeeBonus3",
+        "yahtzeeBonus4",
+      ].includes(fieldName)
     )
       return;
     scores[fieldName] = value;

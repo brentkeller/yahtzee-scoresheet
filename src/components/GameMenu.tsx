@@ -1,22 +1,24 @@
-import React, { useContext, useState } from 'react';
-import { useSpring, animated } from 'react-spring';
-import { MdClose, MdAddCircle, MdRemoveCircle } from 'react-icons/md';
-import './GameMenu.css';
-import { GameContext } from './App';
-import { Game } from '../models/game';
-import { Player } from '../models/player';
-import { Button } from './Button';
+import React, { useContext, useState } from "react";
+import { useSpring, animated } from "react-spring";
+import { MdClose, MdAddCircle, MdRemoveCircle } from "react-icons/md";
+import "./GameMenu.css";
+import { GameContext } from "./App";
+import { Game } from "../models/game";
+import { Player } from "../models/player";
+import { Button } from "./Button";
 
 interface IGameMenu {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export const GameMenu: React.FC<IGameMenu> = props => {
+export const GameMenu: React.FC<IGameMenu> = (props) => {
   const { game, updateGame } = useContext(GameContext);
-  const [newPlayerName, setNewPlayerName] = useState('');
+  const [newPlayerName, setNewPlayerName] = useState("");
   const open = useSpring({
-    transform: props.isOpen ? `translate3d(0,0,0)` : `translate3d(0,-1000px,  0)`,
+    transform: props.isOpen
+      ? `translate3d(0,0,0)`
+      : `translate3d(0,-1000px,  0)`,
   });
 
   const getGame = () => game || new Game();
@@ -43,7 +45,7 @@ export const GameMenu: React.FC<IGameMenu> = props => {
     const _game = getGame();
     _game.addPlayer(new Player(newPlayerName));
     updateGame(new Game(_game));
-    setNewPlayerName('');
+    setNewPlayerName("");
   };
 
   const removePlayer = (player: Player) => {
@@ -51,7 +53,10 @@ export const GameMenu: React.FC<IGameMenu> = props => {
     updateGame(new Game(game));
   };
 
-  const playerNameChange = (event: React.ChangeEvent<HTMLInputElement>, player: Player) => {
+  const playerNameChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    player: Player,
+  ) => {
     player.name = event.target.value;
     const _game = getGame();
     _game.updatePlayer(player);
@@ -63,7 +68,7 @@ export const GameMenu: React.FC<IGameMenu> = props => {
   };
 
   const newPlayerKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter' && newPlayerName.length > 0) addPlayer();
+    if (event.key === "Enter" && newPlayerName.length > 0) addPlayer();
   };
 
   return (
@@ -84,7 +89,7 @@ export const GameMenu: React.FC<IGameMenu> = props => {
             </li>
           )}
           {game &&
-            game.players.map(p => {
+            game.players.map((p) => {
               return (
                 <li key={p.id}>
                   <div className="game-menu__player-name">
@@ -92,14 +97,17 @@ export const GameMenu: React.FC<IGameMenu> = props => {
                       type="text"
                       className="name-input"
                       value={p.name}
-                      onChange={e => playerNameChange(e, p)}
+                      onChange={(e) => playerNameChange(e, p)}
                     />
                   </div>
                   <div className="game-menu__player-score game-menu__player-score-value">
                     {p.scores.total || 0}
                   </div>
                   <div className="game-menu__player-action">
-                    <MdRemoveCircle onClick={() => removePlayer(p)} className="remove-player" />
+                    <MdRemoveCircle
+                      onClick={() => removePlayer(p)}
+                      className="remove-player"
+                    />
                   </div>
                 </li>
               );

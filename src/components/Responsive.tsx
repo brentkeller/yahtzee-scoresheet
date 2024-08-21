@@ -1,5 +1,5 @@
-import React from 'react';
-import { useMediaQuery } from 'react-responsive';
+import React from "react";
+import { useMediaQuery } from "react-responsive";
 
 export const Desktop: React.FC<{ children?: any }> = ({ children }) => {
   const isDesktop = useMediaQuery({ minWidth: 992 });

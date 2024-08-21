@@ -1,6 +1,6 @@
 :root {
   --color-brand: #279ef5;
-  --scribble-font-family: 'Rock Salt', cursive;
+  --scribble-font-family: "Rock Salt", cursive;
   --scribble-font-size: 0.9em;
 }
 
@@ -94,6 +94,11 @@
   text-align: center;
   font-family: var(--scribble-font-family);
   font-size: var(--scribble-font-size);
+}
+
+.button-input-cell {
+  justify-content: center;
+  align-items: center;
 }
 
 .player-name {

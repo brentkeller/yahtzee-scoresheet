@@ -1,9 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md';
-import { IInputProps } from './interfaces';
+import React from "react";
+import PropTypes from "prop-types";
+import { MdCheckBox, MdCheckBoxOutlineBlank } from "react-icons/md";
+import { IInputProps } from "./interfaces";
 
-export const YahtzeeBonusInput: React.FC<IInputProps> = ({ value, fieldName, setValue }) => {
+export const YahtzeeBonusInput: React.FC<IInputProps> = ({
+  value,
+  fieldName,
+  setValue,
+}) => {
   const changeValue = () => {
     const newValue = value === 1 ? undefined : 1;
     setValue(fieldName, newValue);
