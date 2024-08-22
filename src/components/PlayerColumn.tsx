@@ -26,31 +26,37 @@ export const PlayerColumn: React.FC<IPlayerColumn> = ({
         value={player.scores.ones}
         fieldName="ones"
         setValue={updateValue}
+        validValues={validValuesForDie(1)}
       />
       <InputCell
         value={player.scores.twos}
         fieldName="twos"
         setValue={updateValue}
+        validValues={validValuesForDie(2)}
       />
       <InputCell
         value={player.scores.threes}
         fieldName="threes"
         setValue={updateValue}
+        validValues={validValuesForDie(3)}
       />
       <InputCell
         value={player.scores.fours}
         fieldName="fours"
         setValue={updateValue}
+        validValues={validValuesForDie(4)}
       />
       <InputCell
         value={player.scores.fives}
         fieldName="fives"
         setValue={updateValue}
+        validValues={validValuesForDie(5)}
       />
       <InputCell
         value={player.scores.sixes}
         fieldName="sixes"
         setValue={updateValue}
+        validValues={validValuesForDie(6)}
       />
       <div className="cell score-cell">
         {player && player.scores && player.scores.numbersTotal}
@@ -135,3 +141,13 @@ export const PlayerColumn: React.FC<IPlayerColumn> = ({
     </>
   );
 };
+
+function validValuesForDie(die: number) {
+  let validValues = new Set<number>([0]);
+
+  for (let i = 1; i <= 6; i++) {
+    validValues.add(die * i);
+  }
+
+  return validValues;
+}

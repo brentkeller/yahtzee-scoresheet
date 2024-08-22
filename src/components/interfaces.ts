@@ -3,4 +3,5 @@ export interface IInputProps {
   fieldName: string;
   setValue: Function;
   fixedValue?: number;
+  validValues?: Set<number>;
 }
