@@ -47,7 +47,7 @@ export const ScoreSheet: React.FC = () => {
   return (
     <div className="scoresheet">
       <div>
-        <div className="cell">Upper Section</div>
+        <div className="section-divider">Upper Section</div>
         <div className="cell">
           <span className="die-label">Aces</span>
           <GiInvertedDice1 />
@@ -89,7 +89,7 @@ export const ScoreSheet: React.FC = () => {
         <div className="cell">Grand Total</div>
       </div>
       <div>
-        <div className="cell instructions">How to score</div>
+        <div className="section-divider">How to score</div>
         <div className="cell instructions">Count and add only Aces</div>
         <div className="cell instructions">Count and add only Twos</div>
         <div className="cell instructions">Count and add only Threes</div>
@@ -125,7 +125,7 @@ export const ScoreSheet: React.FC = () => {
       <Mobile>
         {currentPlayer ? (
           <div>
-            <div className="cell player-name">
+            <div className="section-divider player-name">
               {multiplePlayers && <MdChevronLeft onClick={prevPlayer} />}
               {currentPlayer.name}
               {multiplePlayers && <MdChevronRight onClick={nextPlayer} />}
@@ -145,7 +145,7 @@ export const ScoreSheet: React.FC = () => {
           game?.players.map((p) => {
             return (
               <div key={p.id}>
-                <div className="cell player-name">{p.name}</div>
+                <div className="section-divider player-name">{p.name}</div>
                 <PlayerColumn player={p} updatePlayer={updatePlayer} />
               </div>
             );

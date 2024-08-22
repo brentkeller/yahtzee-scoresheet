@@ -1,16 +1,32 @@
+@import url("https://fonts.googleapis.com/css?family=Lobster");
+
 :root {
-  --color-brand: #279ef5;
+  --color-brand: red;
+  --color-background: #f8f8f8;
+  --color-border: #cccccc;
+  --color-header: #f0f0f0;
+  --color-cell-background: #ffffff;
+  --color-cell-border: #dddddd;
+  --color-font-body: #333333;
   --scribble-font-family: "Rock Salt", cursive;
   --scribble-font-size: 0.9em;
 }
 
+body {
+  background-color: var(--color-background);
+  font-family: Arial, sans-serif;
+  color: var(--color-font-body);
+}
+
 .app {
-  border: 1px solid black;
-  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
   display: grid;
   grid-template-rows: 40px auto;
   min-height: 98vh;
-  margin: 2px;
+  margin: 2px auto;
+  max-width: 600px;
+  background-color: white;
   padding-bottom: 10px;
 }
 
@@ -18,14 +34,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid black;
-  padding: 0 6px;
+  background-color: var(--color-header);
+  padding: 0 12px;
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 8px 8px 0 0;
 }
 
 .header h1 {
-  display: inline;
   margin: 0;
   padding: 0;
+  font-size: 1.8em;
+  font-family: "Lobster", serif;
+  font-weight: bold;
+  color: red;
 }
 
 .no-content {
@@ -33,12 +54,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  font-size: 1.1em;
+  color: var(--color-font-body);
 }
 
 .scoresheet {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin: 2px;
+  margin: 10px;
+  gap: 4px;
 }
 
 @media (min-width: 768px) {
@@ -52,15 +77,22 @@
   display: flex;
   align-items: center;
   font-weight: bold;
+  color: var(--color-font-body);
+  margin-top: 10px;
+  background-color: var(--color-cell-background);
+  padding-left: 10px;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .cell {
   height: 40px;
-  border: solid 1px black;
+  border: solid 1px var(--color-cell-border);
+  background-color: var(--color-cell-background);
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 0 6px;
+  padding: 0 8px;
+  border-radius: 4px;
 }
 
 .instructions {
@@ -72,10 +104,11 @@
 .cell .die-label {
   display: inline-block;
   width: 50px;
+  font-weight: bold;
 }
 
 .cell svg {
-  font-size: 1.6em;
+  font-size: 1.4em;
   margin: 0 4px;
 }
 
@@ -94,6 +127,10 @@
   text-align: center;
   font-family: var(--scribble-font-family);
   font-size: var(--scribble-font-size);
+  border: 1px solid var(--color-cell-border);
+  background-color: var(--color-cell-background);
+  color: var(--color-font-body);
+  border-radius: 4px;
 }
 
 .button-input-cell {
@@ -112,11 +149,19 @@
 }
 
 .btn {
-  background-color: var(--color-brand);
-  color: white;
+  background-color: white;
+  color: var(--color-brand);
   border: 1px solid var(--color-brand);
   padding: 5px;
   border-radius: 6px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--color-brand);
+  color: white;
 }
 
 .btn.outline {
@@ -125,25 +170,7 @@
   border: 1px solid var(--color-brand);
 }
 
-/* 
-font testing
-    <link
-      href="https://fonts.googleapis.com/css?family=Architects+Daughter|Patrick+Hand|Permanent+Marker|Rock+Salt|Schoolbell&display=swap"
-      rel="stylesheet"
-    />
-
-.font-marker {
-  font-family: 'Permanent Marker', cursive;
+.btn.outline:hover {
+  background-color: var(--color-brand);
+  color: white;
 }
-.font-patrick {
-  font-family: 'Patrick Hand', cursive;
-}
-.font-architect {
-  font-family: 'Architects Daughter', cursive;
-}
-.font-rocksalt {
-  font-family: 'Rock Salt', cursive;
-}
-.font-schoolbell {
-  font-family: 'Schoolbell', cursive;
-} */
