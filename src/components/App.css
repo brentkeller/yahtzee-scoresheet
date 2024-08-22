@@ -25,7 +25,6 @@ body {
   grid-template-rows: 40px auto;
   min-height: 98vh;
   margin: 2px auto;
-  max-width: 600px;
   background-color: white;
   padding-bottom: 10px;
 }
